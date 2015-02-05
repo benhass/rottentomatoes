@@ -27,8 +27,16 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
         self.movies = responseDictionary["movies"] as [NSDictionary]
         self.tableView.reloadData()
-        NSLog("Response: %A", responseDictionary)
         })
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if var indexPath = tableView.indexPathForSelectedRow() {
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

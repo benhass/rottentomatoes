@@ -12,6 +12,8 @@ class MovieDetailViewController: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
+    @IBOutlet weak var detailPhoto: UIImageView!
+    
     var movie = NSDictionary()
     
     override func viewDidLoad() {
@@ -19,6 +21,9 @@ class MovieDetailViewController: UIViewController {
 
         titleLabel.text = movie["title"] as? String
         synopsisLabel.text = movie["synopsis"] as? String
+        
+        var url = movie.valueForKeyPath("posters.thumbnail") as String
+        detailPhoto.setImageWithURL(NSURL(string: url))
     }
 
     override func didReceiveMemoryWarning() {
