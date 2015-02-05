@@ -44,10 +44,18 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         var cell = tableView.dequeueReusableCellWithIdentifier("MovieCell") as MovieCell
 
         var movie = movies[indexPath.row]
+        var url = movie.valueForKeyPath("posters.thumbnail") as String
+        cell.posterView.setImageWithURL(NSURL(string: url))
         cell.titleLabel.text = movie["title"] as? String
         cell.synopsisLabel.text = movie["synopsis"] as? String
 
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var vc = segue.destinationViewController as MovieDetailViewController
+        let indexPath = self.tableView.indexPathForCell(sender as MovieCell) as NSIndexPath!
+        vc.movie = movies[indexPath.row]
     }
 
 }
