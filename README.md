@@ -1,4 +1,4 @@
 # rottentomatoes
 Rotten Tomatoes iOS App
 
-Time spent: 6 hours
+Time spent: 7 hours
