@@ -129,6 +129,7 @@
                     <connections>
                         <outlet property="detailPhoto" destination="lWF-0H-3f6" id="XUG-IR-Nky"/>
                         <outlet property="navigationItem" destination="KnT-gd-G8E" id="TzZ-Lz-xVE"/>
+                        <outlet property="scrollView" destination="eiD-ZS-Gim" id="4Eq-fc-jMi"/>
                         <outlet property="synopsisLabel" destination="4yH-sN-Vue" id="Mmp-8X-Nv9"/>
                         <outlet property="titleLabel" destination="Oqa-gR-KOj" id="cQc-UP-wn4"/>
                     </connections>

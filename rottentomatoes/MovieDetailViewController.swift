@@ -13,6 +13,7 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
     @IBOutlet weak var detailPhoto: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var movie = NSDictionary()
     
@@ -28,10 +29,14 @@ class MovieDetailViewController: UIViewController {
         synopsisLabel.sizeToFit()
         detailPhoto.setImageWithURL(NSURL(string: highResUrl))
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func onDrag() {
+        
     }
     
 
