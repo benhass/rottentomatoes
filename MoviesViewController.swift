@@ -25,7 +25,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
-        
         loadData()
     }
 
@@ -65,7 +64,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         vc.movie = movies[indexPath.row]
     }
     
-    func loadData(limit: Int = 30) {
+    func loadData(limit: Int = 30, isRefresh: Bool = false) {
+        if (!isRefresh) {
+            SVProgressHUD.show()
+        }
         let badUrl = "www.google.com:81"
         let apiKey = "37jbp9fs675fjt3p8urn52mv"
         var url = "http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?limit=\(limit)&apikey=\(apiKey)"
@@ -94,12 +96,16 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                 self.networkErrorView.hidden = false
             }
             
-            self.refreshControl.endRefreshing()
+            if (isRefresh) {
+                self.refreshControl.endRefreshing()
+            } else {
+                SVProgressHUD.dismiss()
+            }
         })
     }
     
     func onRefresh() {
-        loadData()
+        loadData(isRefresh: true)
     }
 
 }
