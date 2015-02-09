@@ -21,8 +21,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
         tableView.dataSource = self
         tableView.delegate = self
-        networkErrorView.hidden = true
-        tableView.hidden = true
 
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
@@ -72,8 +70,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let apiKey = "37jbp9fs675fjt3p8urn52mv"
         var url = "http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?limit=\(limit)&apikey=\(apiKey)"
 
-        // fake a bad request on the third try
-        if (requestCount % 3 == 0) {
+        // fake a bad request every other time
+        if (requestCount % 2 == 0) {
             println("bad request")
             url = badUrl
         }
@@ -87,14 +85,13 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                     if let movieCollection = dictionary["movies"] as? [NSDictionary] {
                         self.movies = movieCollection
                         self.tableView.reloadData()
-                        self.tableView.hidden = false
+                        self.networkErrorView.hidden = true
                     }
                 }
             }
 
             if (error != nil) {
                 self.networkErrorView.hidden = false
-                self.tableView.hidden = true
             }
             
             self.refreshControl.endRefreshing()
