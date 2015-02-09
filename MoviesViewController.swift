@@ -74,7 +74,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
         // fake a bad request every other time
         if (requestCount % 2 == 0) {
-            println("bad request")
             url = badUrl
         }
         requestCount += 1

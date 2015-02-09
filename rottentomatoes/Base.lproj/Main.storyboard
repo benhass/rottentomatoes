@@ -18,7 +18,7 @@
                                 <color key="backgroundColor" red="0.26000236742424243" green="0.26000236742424243" blue="0.26000236742424243" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell alpha="0.70000000000000007" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="9" reuseIdentifier="MovieCell" rowHeight="92" id="htV-XY-s9Z" customClass="MovieCell" customModule="rottentomatoes" customModuleProvider="target">
+                                    <tableViewCell alpha="0.70000000000000007" contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" indentationWidth="5" reuseIdentifier="MovieCell" rowHeight="92" id="htV-XY-s9Z" customClass="MovieCell" customModule="rottentomatoes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="htV-XY-s9Z" id="4TX-op-O5c">
@@ -48,7 +48,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.1792732007575758" green="0.1792732007575758" blue="0.1792732007575758" alpha="1" colorSpace="calibratedRGB"/>
-                                        <inset key="separatorInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                         <connections>
                                             <outlet property="posterView" destination="dTK-ZW-JpF" id="o9D-2w-WZX"/>
                                             <outlet property="synopsisLabel" destination="ime-q8-BM3" id="KEU-VC-BHw"/>
@@ -146,9 +145,10 @@
                     <navigationBar key="navigationBar" alpha="0.59999999999999998" contentMode="scaleToFill" barStyle="black" id="Smn-KL-6WQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.7731854389483066" green="0.6606596525407411" blue="0.24196032058270545" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.094479955808080773" green="0.094479955808080773" blue="0.094479955808080773" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="1" green="0.85023276672989534" blue="0.3087227771499933" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="textShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <offsetWrapper key="textShadowOffset" horizontal="1" vertical="1"/>
                         </textAttributes>
