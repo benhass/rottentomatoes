@@ -18,12 +18,15 @@ class MovieDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        titleLabel.text = movie["title"] as? String
-        synopsisLabel.text = movie["synopsis"] as? String
+        let movieTitle = movie["title"] as? String
+        let url = movie.valueForKeyPath("posters.thumbnail") as String
+        let highResUrl: String = url.stringByReplacingOccurrencesOfString("tmb", withString: "ori")
         
-        var url = movie.valueForKeyPath("posters.thumbnail") as String
-        detailPhoto.setImageWithURL(NSURL(string: url))
+        navigationItem.title = movieTitle
+        titleLabel.text = movieTitle
+        synopsisLabel.text = movie["synopsis"] as? String
+        synopsisLabel.sizeToFit()
+        detailPhoto.setImageWithURL(NSURL(string: highResUrl))
     }
 
     override func didReceiveMemoryWarning() {
